@@ -1,0 +1,76 @@
+/* Base Sidebar Styles */
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  background-color: #6d36f8;
+  color: #ecf0f1;
+  padding: 20px 15px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+/* Header Section */
+.sidebar-header {
+  margin-bottom: 30px;
+}
+
+.firms-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.user-profile {
+  margin-top: 15px;
+}
+
+.user-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.user-role {
+  font-size: 0.9rem;
+  color: #bdc3c7;
+  margin-top: 2px;
+}
+
+/* Navigation Sections */
+.nav-item {
+  color: #ecf0f1;
+  padding: 8px 10px;
+  margin: 2px 0;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+  background-color: #34495e;
+  color: #ffffff;
+}
+
+.nav-item.active {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background-color: #34495e;
+  margin: 20px 0;
+}
+
+/* Free Section */
+.free-section .nav-item {
+  padding-left: 20px;
+  color: #bdc3c7;
+}
+
+.free-section .section-title {
+  margin-top: 10px;
+}
