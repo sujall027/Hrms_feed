@@ -1,4 +1,4 @@
-/* ========== LIGHT MODE (Default) ========== */
+/* ========== LIGHT MODE ========== */
 .right-panel {
   padding: 15px;
   width: 320px;
@@ -9,27 +9,25 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Month Header */
-.month-header {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #003366;
-  margin-bottom: 6px;
+.right-panel .badge {
+  color: #ffffff !important;
+  font-weight: bold;
+}
+.right-panel .badge .count-up {
+  color: inherit !important;
 }
 
-/* Card Styling */
 .right-panel .card {
   border: none;
-  background: #ffffff;
+  background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+  transition: transform 0.2s ease;
 }
 .right-panel .card:hover {
   transform: translateY(-3px);
 }
 
-/* Progress bar */
 .progress {
   border-radius: 20px;
   overflow: hidden;
@@ -40,64 +38,53 @@
   transition: width 0.4s ease;
 }
 
-/* Calendar grid */
 .calendar-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  row-gap: 6px;
-  column-gap: 8px;
+  gap: 6px 8px;
   margin-top: 8px;
 }
 
-/* Calendar day */
 .calendar-day {
   background-color: #dfefff;
   border-radius: 6px;
+  text-align: center;
+  height: 42px;
+  font-size: 0.63rem;
   color: #003366;
   font-weight: 500;
-  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 42px;
-  font-size: 0.63rem;
-  transition: all 0.3s ease;
 }
-.calendar-day .day-name {
-  font-size: 0.63rem;
+.day-name {
   font-weight: 600;
 }
-.calendar-day .day-number {
+.day-number {
   font-size: 0.58rem;
   font-weight: 400;
   color: #555;
   margin-top: 2px;
 }
 
-/* Today Highlight */
 .calendar-day.today {
   background-color: #ffecb3;
   border: 1px solid #ffc107;
   color: #5d4037;
   font-weight: bold;
 }
-
-/* Birthday Highlight */
 .calendar-day.birthday {
   background-color: #ffe0f0 !important;
   border: 1px solid #ff69b4;
   color: #ad1457;
 }
-
-/* Today + Birthday */
 .calendar-day.today.birthday {
   background-image: linear-gradient(135deg, #ffecb3 50%, #ffe0f0 50%);
   border: 1px solid #ff69b4;
   color: #5d0037;
 }
 
-/* Events */
 .calendar-event {
   font-size: 0.63rem;
   background-color: #ccf5ff;
@@ -119,11 +106,10 @@
   display: none;
 }
 
-/* Week Buttons */
 .next-week-wrapper {
   margin-top: 6px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 .next-week,
 .prev-week {
@@ -131,7 +117,7 @@
   color: #006644;
   font-weight: bold;
   border-radius: 6px;
-  padding: 10px 16px;
+  padding: 6px 12px;
   font-size: 0.75rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -141,15 +127,6 @@
   background-color: #a4ecc2;
 }
 
-/* Back toggle */
-.calendar-toggle-back {
-  margin-left: 10px;
-  text-decoration: underline;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* Buttons */
 .btn-outline-primary {
   border-color: #007bff;
   color: #007bff;
@@ -167,7 +144,6 @@
   color: #fff;
 }
 
-/* List items */
 .list-group-item {
   border: none;
   background-color: #f8faff;
@@ -179,7 +155,6 @@
   background-color: #e6f0ff;
 }
 
-/* Scrollbar */
 .right-panel::-webkit-scrollbar {
   width: 6px;
 }
@@ -188,7 +163,6 @@
   border-radius: 3px;
 }
 
-/* Mobile */
 @media (max-width: 400px) {
   .right-panel {
     width: 100%;
@@ -197,23 +171,16 @@
   }
 }
 
-
 /* ========== DARK MODE ========== */
 body.dark-mode .right-panel {
   background: linear-gradient(to bottom right, #1e1e1e, #2c2c2c);
   color: #f0f0f0;
 }
-
-body.dark-mode .right-panel .card {
+body.dark-mode .card {
   background-color: #2e2e2e;
-  color: #ffffff;
+  color: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
-
-body.dark-mode .month-header {
-  color: #cccccc;
-}
-
 body.dark-mode .progress {
   background-color: #444;
 }
@@ -226,30 +193,33 @@ body.dark-mode .calendar-day {
   color: #e0e0e0;
   border: 1px solid #4a4a4a;
 }
-
 body.dark-mode .calendar-day.today {
   background-color: #6b5000;
   border: 1px solid #ffc107;
   color: #ffd54f;
 }
 
+/* ✅ Updated birthday styling */
 body.dark-mode .calendar-day.birthday {
-  background-color: #560038 !important;
-  border: 1px solid #ff69b4;
-  color: #ffb6c1;
+  background-color: #3c3f75 !important; /* Indigo-toned */
+  border: 1px solid #8f9bff;
+  color: #dcdcff;
+}
+body.dark-mode .calendar-day.today.birthday {
+  background-image: linear-gradient(135deg, #6b5000 50%, #3c3f75 50%);
+  border: 1px solid #8f9bff;
+  color: #f1e9ff;
 }
 
-body.dark-mode .calendar-day.today.birthday {
-  background-image: linear-gradient(135deg, #6b5000 50%, #560038 50%);
-  border: 1px solid #ff69b4;
-  color: #ffd6e0;
+/* Optional: Apply this to birthday icons like 🧁 */
+body.dark-mode .calendar-day.birthday .birthday-icon {
+  filter: brightness(1.2) drop-shadow(0 0 4px #b4c4ff);
 }
 
 body.dark-mode .calendar-event {
   background-color: #005066;
   color: #a0e7ff;
 }
-
 body.dark-mode .calendar-event.marked {
   background-color: #19692c;
   color: #9ae6b4;
@@ -259,14 +229,12 @@ body.dark-mode .next-week,
 body.dark-mode .prev-week {
   background-color: #19692c;
   color: #baf8d4;
-  border-color: transparent;
 }
 body.dark-mode .next-week:hover,
 body.dark-mode .prev-week:hover {
   background-color: #22863a;
   color: #fff;
 }
-
 body.dark-mode .btn-outline-primary {
   border-color: #329fff;
   color: #329fff;
@@ -275,7 +243,6 @@ body.dark-mode .btn-outline-primary:hover {
   background-color: #329fff;
   color: #000;
 }
-
 body.dark-mode .btn-outline-success {
   border-color: #84e1b2;
   color: #84e1b2;
@@ -292,21 +259,18 @@ body.dark-mode .list-group-item {
 body.dark-mode .list-group-item:hover {
   background-color: #333;
 }
-
-body.dark-mode .badge.bg-light {
+body.dark-mode .badge.bg-light,
+body.dark-mode .right-panel .badge {
   background-color: #444 !important;
-  color: #f0f0f0 !important;
+  color: #ffffff !important;
 }
-
 body.dark-mode .text-muted {
   color: #bbb !important;
 }
-
 body.dark-mode .modal-content {
   background-color: #2c2c2c;
   color: #fff;
 }
-
 body.dark-mode .form-control {
   background-color: #1f1f1f;
   color: #fff;
@@ -316,7 +280,6 @@ body.dark-mode .form-control::placeholder {
   color: #888;
 }
 
-/* Smooth transitions */
 .right-panel,
 .right-panel .card,
 .right-panel .calendar-day,
