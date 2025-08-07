@@ -28,13 +28,26 @@ body.dark-mode .form-control::placeholder {
   color: #ddd !important;
 }
 
+body.dark-mode .form-control {
+  background-color: #2c2c2c;
+  border: 1px solid #444;
+}
+
+body.dark-mode .form-control:focus {
+  background-color: #2c2c2c;
+  color: #fff;
+  border-color: #666;
+  box-shadow: none;
+}
+
 body.dark-mode .avatar {
   background-color: #333;
   color: #fff;
 }
 
 body.dark-mode .points-badge,
-body.dark-mode .comments-badge {
+body.dark-mode .comments-badge,
+body.dark-mode .badge.bg-light {
   background-color: #3a3a3a !important;
   color: #f1f1f1 !important;
   border: none;
@@ -63,16 +76,14 @@ body.dark-mode .post-actions {
   border-bottom-color: #333;
 }
 
-body.dark-mode .action-btn {
+body.dark-mode .action-btn,
+body.dark-mode .btn-link {
   color: #cccccc;
   text-decoration: none !important;
 }
 
-body.dark-mode .action-btn span {
-  text-decoration: none !important;
-}
-
-body.dark-mode .action-btn:hover {
+body.dark-mode .action-btn:hover,
+body.dark-mode .btn-link:hover {
   color: #66b2ff;
   opacity: 0.85;
 }
@@ -81,48 +92,104 @@ body.dark-mode .view-comments-btn {
   color: #aaaaaa;
 }
 
-body.dark-mode .btn-link {
-  color: #ccc;
-  text-decoration: none !important;
-}
-
-body.dark-mode .btn-link:hover {
-  color: #66b2ff;
-  text-decoration: none !important;
-}
-
-body.dark-mode .badge.bg-light {
-  background-color: #333 !important;
-  color: #eee !important;
-}
-
-body.dark-mode .form-control:focus {
-  background-color: #2c2c2c;
-  color: #fff;
-  border-color: #666;
-  box-shadow: none;
-}
-
-/* Dark scrollbar */
 body.dark-mode .main-content::-webkit-scrollbar-thumb {
   background-color: #555;
 }
 
+body.dark-mode .custom-share-dropdown {
+  background-color: #1f1f1f;
+  border: 1px solid #333;
+}
+
+body.dark-mode .custom-share-btn {
+  background-color: #2c2c2c;
+  color: #eaeaea;
+  border-color: #444;
+}
+
+body.dark-mode .custom-share-btn:hover {
+  background-color: #3a3a3a;
+  color: #66b2ff;
+  transform: translateY(-1px);
+}
+
 /* ========== GLOBAL LIGHT + DARK COMMON FIXES ========== */
-.action-btn {
-  text-decoration: none !important;
-}
-
-.action-btn span {
-  text-decoration: none !important;
-}
-
-.btn-link {
-  text-decoration: none !important;
-}
-
+.action-btn,
+.action-btn span,
+.btn-link,
 .btn-link:hover {
   text-decoration: none !important;
+}
+
+/* ========== COMMENT SECTION ========== */
+.comment-box {
+  resize: none;
+  font-size: clamp(0.85rem, 1vw, 1rem);
+}
+
+.comment .avatar {
+  width: 36px;
+  height: 36px;
+  font-size: 0.8rem;
+  background-color: #ccc;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* ========== COLLAPSIBLE REPLIES ========== */
+.reply {
+  margin-left: 2rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid #eee;
+}
+body.dark-mode .reply {
+  border-left: 2px solid #444;
+}
+
+/* ========== FONT SCALING ========== */
+html {
+  font-size: clamp(14px, 1.5vw, 16px);
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.5;
+}
+
+.feed-header {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 600;
+}
+
+/* ========== SMOOTH COMMENT APPEARANCE ========== */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.comment {
+  animation: fadeSlideIn 0.4s ease-out;
 }
 
 /* ========== THEME TRANSITION ANIMATION ========== */
@@ -145,5 +212,223 @@ body,
 .btn-link,
 .badge,
 .form-control:focus {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, text-decoration 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    text-decoration 0.3s ease,
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* ========== SHARE DROPDOWN ENHANCEMENTS ========== */
+.custom-share-dropdown {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-share-btn {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.custom-share-btn:hover {
+  background-color: #e8f0fe;
+  transform: translateY(-1px);
+  color: #007bff;
+}
+
+/* ========== EMOJI BUTTONS ========== */
+.emoji-reactions {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.emoji-btn {
+  border-radius: 50%;
+  font-size: 1rem;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.emoji-btn:hover {
+  background-color: #f1f1f1;
+  transform: scale(1.1);
+}
+
+body.dark-mode .emoji-btn:hover {
+  background-color: #3a3a3a;
+}
+
+/* ========== COMMENT SUBMIT BUTTON ========== */
+.comment-submit-btn {
+  margin-top: 0.5rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.comment-submit-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+body.dark-mode .comment-submit-btn {
+  background-color: #3390ff;
+  color: #fff;
+}
+
+body.dark-mode .comment-submit-btn:hover {
+  background-color: #1e75d2;
+}
+
+.comment-submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* ========== POST CREATION ========== */
+.create-post-btn {
+  font-weight: 600;
+  padding: 6px 16px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.create-post-btn:hover {
+  background-color: #0056b3;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+body.dark-mode .create-post-btn {
+  background-color: #3390ff;
+  color: #fff;
+}
+
+body.dark-mode .create-post-btn:hover {
+  background-color: #1e75d2;
+}
+
+/* Modal */
+.create-post-modal .modal-content {
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.create-post-modal textarea {
+  resize: none;
+}
+
+/* Image Preview */
+.image-preview {
+  margin-top: 1rem;
+  position: relative;
+}
+
+.image-preview img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+}
+
+.image-preview button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+body.dark-mode .image-preview img {
+  border-color: #444;
+}
+
+body.dark-mode .image-preview button {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  background-color: #e0f3ff;
+  color: #007bff;
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin-right: 4px;
+  font-size: 0.85rem;
+}
+
+body.dark-mode .tag {
+  background-color: #003d66;
+  color: #66c2ff;
+}
+
+/* File Input */
+.custom-file-input {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.custom-file-input::before {
+  content: 'Upload Image';
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  border-radius: 4px;
+  padding: 4px 12px;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-input:hover::before {
+  background-color: #0056b3;
+}
+
+body.dark-mode .custom-file-input::before {
+  background-color: #3390ff;
+}
+
+body.dark-mode .custom-file-input:hover::before {
+  background-color: #1e75d2;
 }
